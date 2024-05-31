@@ -59,7 +59,7 @@ const App = () => {
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 75}}>
                 <Image source={{ uri: 'koko1.png'}}
                 style={styles.Image}
-                />
+             />
             </View> */}
             <View style={{ flex:1, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 50}}>
                 <View style={{ flexDirection: 'row', marginBottom: 10}}>
@@ -103,10 +103,14 @@ const App = () => {
                      {/* <Text style={styles.forgetPasswordText}>
                         coming soon
                     </Text> */}
-    </View>
+            </View>
     
-// </View>
-      
+    </View>
+    )
+}
+
+export default App
+
 //     );
 
 // };
@@ -128,10 +132,10 @@ const App = () => {
 //         fontSize: 20,
 //         textAlign: 'center',
 //         marginTop: 20,
-                )
+        //         )
 
-        }
+        // }
 
-export default App
+// export default App
 
 
