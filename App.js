@@ -57,11 +57,11 @@ const App = () => {
                 Take me out Indonesia
             </Text>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 75}}>
-                <Image source={{ uri: 'koko1.png'}}
+                <Image source={{ uri: 'Image 1.png'}}
                 style={styles.Image}
              />
             </View>
-            <View style={{ flex:1, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 50}}>
+            <View style={{ flex:1, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 70}}>
                 <View style={{ flexDirection: 'row', marginBottom: 10}}>
                     <View style={{
                         backgroundColor: 'plum',
@@ -101,7 +101,7 @@ const App = () => {
             </View>
         </View>
                      <Text style={styles.forgetPasswordText}>
-                        coming soon
+                        Forget Password
                     </Text>
             </View>
     
@@ -109,8 +109,6 @@ const App = () => {
     </View>
     )
 }
-
-
 const styles = StyleSheet.create({
     topText: {
         fontSize: 40,
@@ -120,8 +118,8 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     Image: {
-        width: 350,
-        height: 400,
+        width: 400,
+        height: 350,
     },
     forgetPasswordText: {
         color: 'grey',
