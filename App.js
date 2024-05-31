@@ -53,14 +53,14 @@ import React from 'react'
 const App = () => {
     return (
         <View style={{ flex: 1}}>
-            {/* <Text style={styles.topText}>
+            <Text style={styles.topText}>
                 Take me out Indonesia
             </Text>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 75}}>
                 <Image source={{ uri: 'koko1.png'}}
                 style={styles.Image}
              />
-            </View> */}
+            </View>
             <View style={{ flex:1, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 50}}>
                 <View style={{ flexDirection: 'row', marginBottom: 10}}>
                     <View style={{
@@ -100,9 +100,9 @@ const App = () => {
                     </Text>
             </View>
         </View>
-                     {/* <Text style={styles.forgetPasswordText}>
+                     <Text style={styles.forgetPasswordText}>
                         coming soon
-                    </Text> */}
+                    </Text>
             </View>
     
     
@@ -110,33 +110,28 @@ const App = () => {
     )
 }
 
+
+const styles = StyleSheet.create({
+    topText: {
+        fontSize: 40,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 50,
+        color: 'black'
+    },
+    Image: {
+        width: 350,
+        height: 400,
+    },
+    forgetPasswordText: {
+        color: 'grey',
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: 20,
+    }
+                
+})
+
 export default App
-
-//     );
-
-// };
-
-// const styles = StyleSheet.create({
-//     topText: {
-//         fontSize: 40,
-//         fontWeight: 'bold',
-//         textAlign: 'center',
-//         marginTop: 50,
-//         color: 'black'
-//     },
-//     Image: {
-//         width: 350,
-//         height: 400,
-//     },
-//     forgetPasswordText: {
-//         color: 'grey',
-//         fontSize: 20,
-//         textAlign: 'center',
-//         marginTop: 20,
-        //         )
-
-        // }
-
-// export default App
 
 
