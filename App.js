@@ -105,6 +105,7 @@ const App = () => {
                     </Text> */}
             </View>
     
+    
     </View>
     )
 }
