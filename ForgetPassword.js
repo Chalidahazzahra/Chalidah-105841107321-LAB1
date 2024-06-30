@@ -1,3 +1,4 @@
+import { useFonts } from 'expo-font';
 import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
 import React from 'react'
 
@@ -18,6 +19,7 @@ return (
                 paddingLeft: 10,
                 width: 300,
                 color: color,
+                fontFamily: 'MetroMedium'
             }}
        />
     </View>
@@ -77,11 +79,13 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         fontWeight: 'bold',
         marginRight: 50,
+        fontFamily: 'MetroBold'
     },
     topText1: {
         fontSize: 15,
         textAlign: 'center',
-        marginTop: 50
+        marginTop: 50,
+        fontFamily: 'MetroMedium'
     },
 })
 export default App
