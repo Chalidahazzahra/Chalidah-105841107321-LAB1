@@ -27,10 +27,7 @@ return (
 }
 const Buttoncostum = ({ color, text}) => {
     return (
-        <View style={{ backgroundColor: color, width:160, 
-            height: 45, alignItems:'center', 
-            justifyContent: 'center',textAlign: 'center', 
-            borderRadius: 10, width: 300, marginTop: 15,
+        <View style={{ backgroundColor: color, width:160, height: 45, alignItems:'center', justifyContent: 'center',textAlign: 'center', borderRadius: 10, width: 300
         }}>
             <Text style={{ color:'white', fontSize: 20}}>
                 {text}
@@ -49,20 +46,16 @@ const App = () => {
 return (
     < View style={styles.container}>
         <Text style={styles.topText}>
-            Login
+            Sign up
         </Text>
     <View style= {{ flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-
     }}>
+        <TextInputCustom name="Username" color="black" />
         <TextInputCustom name="Email" color="black" />
         <TextInputCustom name="Password" color="black" />
-        <Buttoncostum color='violet' text="Login" /> 
-        <View View style={styles.container}>
-        <Text style={styles.ForgetPasswordText}>
-            Forget Password
-        </Text>
+        <Buttoncostum color='violet' text="Sign Up" /> 
         <View View style={styles.container}>
         <Text style={styles.topText1}>
             or sign up with social account
@@ -70,13 +63,12 @@ return (
         <View style={{ flex:1, justifyContent:'center',alignItems:'center', marginTop: 75, flexDirection: 'row'}}>
                 <Image source={{ uri:'google.png'}} style={styles.image}/> 
                 <Image source={{ uri:'facebook.png'}} style={styles.image}/>
-                </View>
             </View>
         </View>
     </View>
     </View>
-    );
-  };
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -87,29 +79,23 @@ const styles = StyleSheet.create({
     topText: {
         fontSize: 50,
         textAlign: 'center',
-        marginRight: 150,
-        marginBottom: 100,
-        fontWeight: "bold",
+        marginRight: 130,
+        marginBottom: 120,
+        fontWeight: 'bold',
         fontFamily: 'MetroBold'
     },
     topText1: {
         fontSize: 20,
         textAlign: 'center',
-        marginTop: 20,
         fontFamily: 'MetroMedium'
-    },
-    ForgetPasswordText: {
-        fontSize: 15,
-        textAlign: 'center',
-        color: "gray",
-        marginBottom: 40,
-        fontFamily: 'MetroSemiMedium'
     },
     image: {
         width: 50,
         height: 50,
         borderRadius: 50,
-        marginHorizontal: 5
+        marginBottom: 10,
+        marginHorizontal: 10,
+        fontFamily: 'MetroMedium'
     }
 })
 export default App
