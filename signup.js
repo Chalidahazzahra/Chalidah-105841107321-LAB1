@@ -1,3 +1,4 @@
+import { useFonts } from 'expo-font';
 import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
 import React from 'react'
 
@@ -18,6 +19,7 @@ return (
                 paddingLeft: 10,
                 width: 300,
                 color: color,
+                fontFamily: 'MetroMedium'
             }}
        />
     </View>
@@ -34,7 +36,13 @@ const Buttoncostum = ({ color, text}) => {
     );
 };
 const App = () => {
- 
+  const [fontsLoaded] = useFonts({
+    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
+    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
+    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
+    'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
+    'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf'),
+  });
 return (
     < View style={styles.container}>
         <Text style={styles.topText}>
@@ -73,18 +81,21 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginRight: 130,
         marginBottom: 120,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'MetroBold'
     },
     topText1: {
         fontSize: 20,
         textAlign: 'center',
+        fontFamily: 'MetroMedium'
     },
     image: {
         width: 50,
         height: 50,
         borderRadius: 50,
         marginBottom: 10,
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        fontFamily: 'MetroMedium'
     }
 })
 export default App

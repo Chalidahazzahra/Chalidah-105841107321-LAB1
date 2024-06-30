@@ -1,4 +1,3 @@
-import { useFonts } from 'expo-font';
 import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
 import React from 'react'
 
@@ -27,45 +26,42 @@ return (
 }
 const Buttoncostum = ({ color, text}) => {
     return (
-        <View style={{ backgroundColor: color, width:160, height: 45, alignItems:'center', justifyContent: 'center',textAlign: 'center', borderRadius: 10, width: 300
+        <View style={{ backgroundColor: color, 
+            width:160, 
+            height: 45, 
+            borderRadius: 10, 
+            width: 300,
+            marginTop: 10,
+            alignItems:'center',
+            justifyContent: 'center',
+            textAlign: 'center',
         }}>
-            <Text style={{ color:'white', fontSize: 20}}>
+            <Text style={{ color:'white', fontSize: 15}}>
                 {text}
             </Text>
         </View>
     );
 };
 const App = () => {
-  const [fontsLoaded] = useFonts({
-    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
-    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
-    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
-    'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
-    'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf'),
-  });
+ 
 return (
     < View style={styles.container}>
         <Text style={styles.topText}>
-            Sign up
+            Forget Password
+        </Text>
+        <View View style={styles.container}>
+        <Text style={styles.topText1}>
+           Please, enter your email address. You will receive a link to create a new password via email.
         </Text>
     <View style= {{ flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: 270,
     }}>
-        <TextInputCustom name="Username" color="black" />
         <TextInputCustom name="Email" color="black" />
-        <TextInputCustom name="Password" color="black" />
-        <Buttoncostum color='violet' text="Sign Up" /> 
-        <View View style={styles.container}>
-        <Text style={styles.topText1}>
-            or sign up with social account
-        </Text>
-        <View style={{ flex:1, justifyContent:'center',alignItems:'center', marginTop: 75, flexDirection: 'row'}}>
-                <Image source={{ uri:'google.png'}} style={styles.image}/> 
-                <Image source={{ uri:'facebook.png'}} style={styles.image}/>
+        <Buttoncostum color='violet' text="SEND" />
             </View>
         </View>
-    </View>
     </View>
     )
 }
@@ -77,25 +73,18 @@ const styles = StyleSheet.create({
         padding: 70,
     },
     topText: {
-        fontSize: 50,
+        fontSize: 30,
         textAlign: 'center',
-        marginRight: 130,
-        marginBottom: 120,
+        marginBottom: 10,
         fontWeight: 'bold',
+        marginRight: 50,
         fontFamily: 'MetroBold'
     },
     topText1: {
-        fontSize: 20,
+        fontSize: 15,
         textAlign: 'center',
+        marginTop: 50,
         fontFamily: 'MetroMedium'
     },
-    image: {
-        width: 50,
-        height: 50,
-        borderRadius: 50,
-        marginBottom: 10,
-        marginHorizontal: 10,
-        fontFamily: 'MetroMedium'
-    }
 })
 export default App
