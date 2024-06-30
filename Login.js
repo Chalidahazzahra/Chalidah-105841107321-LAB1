@@ -1,3 +1,4 @@
+import { useFonts } from 'expo-font';
 import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
 import React from 'react'
 
@@ -18,6 +19,7 @@ return (
                 paddingLeft: 10,
                 width: 300,
                 color: color,
+                fontFamily: 'MetroMedium'
             }}
        />
     </View>
@@ -28,7 +30,7 @@ const Buttoncostum = ({ color, text}) => {
         <View style={{ backgroundColor: color, width:160, 
             height: 45, alignItems:'center', 
             justifyContent: 'center',textAlign: 'center', 
-            borderRadius: 10, width: 300, marginTop: 15
+            borderRadius: 10, width: 300, marginTop: 15,
         }}>
             <Text style={{ color:'white', fontSize: 20}}>
                 {text}
@@ -37,7 +39,13 @@ const Buttoncostum = ({ color, text}) => {
     );
 };
 const App = () => {
- 
+  const [fontsLoaded] = useFonts({
+    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
+    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
+    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
+    'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
+    'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf'),
+  });
 return (
     < View style={styles.container}>
         <Text style={styles.topText}>
@@ -46,6 +54,7 @@ return (
     <View style= {{ flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+
     }}>
         <TextInputCustom name="Email" color="black" />
         <TextInputCustom name="Password" color="black" />
@@ -66,8 +75,8 @@ return (
         </View>
     </View>
     </View>
-    )
-}
+    );
+  };
 
 const styles = StyleSheet.create({
     container: {
@@ -80,18 +89,21 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginRight: 150,
         marginBottom: 100,
-        fontWeight: 'bold'
+        fontWeight: "bold",
+        fontFamily: 'MetroBold'
     },
     topText1: {
         fontSize: 20,
         textAlign: 'center',
-        marginTop: 20
+        marginTop: 20,
+        fontFamily: 'MetroMedium'
     },
     ForgetPasswordText: {
         fontSize: 15,
         textAlign: 'center',
         color: "gray",
-        marginBottom: 40
+        marginBottom: 40,
+        fontFamily: 'MetroMedium'
     },
     image: {
         width: 50,
