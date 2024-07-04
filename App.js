@@ -1,91 +1,29 @@
-import { useFonts } from 'expo-font';
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
-import React from 'react'
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginPages from './LoginPages'
 
-const TextInputCustom = ({name, color, Password}) => {
-return (
-    <View style= {{
-        justifyContent: 'center',
-        alignItems: 'center',
-    }}>
-        <TextInput  
-            placeholder={`Masukkan ${name}`}
-            style={{
-                height: 45,
-                borderColor: 'black',
-                borderWidth: 1,
-                borderRadius: 10,
-                marginBottom: 10,
-                paddingLeft: 10,
-                width: 300,
-                color: color,
-                fontFamily: 'MetroMedium'
-            }}
-       />
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button title="ke halaman Login" onPress={()=> navigation.navigate('LoginPages')} />
     </View>
-    )
-}
-const Buttoncostum = ({ color, text}) => {
-    return (
-        <View style={{ backgroundColor: color, 
-            width:160, 
-            height: 45, 
-            borderRadius: 10, 
-            width: 300,
-            marginTop: 10,
-            alignItems:'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-        }}>
-            <Text style={{ color:'white', fontSize: 15}}>
-                {text}
-            </Text>
-        </View>
-    );
-};
-const App = () => {
- 
-return (
-    < View style={styles.container}>
-        <Text style={styles.topText}>
-            Forget Password
-        </Text>
-        <View View style={styles.container}>
-        <Text style={styles.topText1}>
-           Please, enter your email address. You will receive a link to create a new password via email.
-        </Text>
-    <View style= {{ flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 270,
-    }}>
-        <TextInputCustom name="Email" color="black" />
-        <Buttoncostum color='violet' text="SEND" />
-            </View>
-        </View>
-    </View>
-    )
+  );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'thistle',
-        padding: 70,
-    },
-    topText: {
-        fontSize: 30,
-        textAlign: 'center',
-        marginBottom: 10,
-        fontWeight: 'bold',
-        marginRight: 50,
-        fontFamily: 'MetroBold'
-    },
-    topText1: {
-        fontSize: 15,
-        textAlign: 'center',
-        marginTop: 50,
-        fontFamily: 'MetroMedium'
-    },
-})
-export default App
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="LoginPages" component={LoginPages} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
