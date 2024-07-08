@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, } from 'react-native'
 import React from 'react'
 
-const TextInputCustom = ({name, color, secureTextEntry}) => {
+const TextInputCustom = ({name, color, Password}) => {
 return (
     <View style= {{
         justifyContent: 'center',
@@ -20,7 +20,6 @@ return (
                 color: color,
                 fontFamily: 'MetroMedium'
             }}
-            secureTextEntry={secureTextEntry}
        />
     </View>
     )
@@ -28,41 +27,46 @@ return (
 const ButtonCustom = ({ color, text, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress}>
-        <View style={{ backgroundColor: color, height: 45, alignItems: "center", justifyContent: "center", 
-          textAlign: 'center', borderRadius: 10, width: 300, marginBottom: 100
-          }}>
-            <Text style= {{ color: 'white', fontSize: 20 }}>{text}</Text>
-        </View>
+     <View style={{ backgroundColor: color, width:160, 
+            height: 45, alignItems:'center', 
+            justifyContent: 'center',textAlign: 'center', 
+            borderRadius: 10, width: 300, marginTop: 15, marginBottom:75
+        }}>
+        <Text style={{ color: 'white', fontSize: 20 }}>{text}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
 
-const SignUpPages = ({ navigation }) => {
-    return (
-    <View style={styles.container}>
+const LoginPages = ({ navigation}) => { 
+return (
+    < View style={styles.container}>
         <Text style={styles.topText}>
-            Sign up
+            Login
         </Text>
     <View style= {{ flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     }}>
-        <TextInputCustom name="Username" color="black" />
-        <TextInputCustom name="Email" color="black" />
-        <TextInputCustom name="Password" color="black" secureTextEntry />
-        <ButtonCustom color='violet' text="Sign Up" onPress={() => alert ('Akun anda akan berhasil dibuat')} />
-        <TouchableOpacity onPress={() => navigation.navigate('LoginPages')}>
-            <Text style={styles.buttonText}>
-            or sign up with social account</Text>
+        <TextInput placeholder="Email" style={styles.input} />
+        <TextInput placeholder="Password" secureTextEntry style={styles.input} />
+        <ButtonCustom color='violet' text="Login" onPress={() => alert('Login succesfull')} /> 
+        <TouchableOpacity style={styles.button} onPress={() => alert('Login succesfull')}>
+            <Text style={styles.ForgetPasswordText}>
+                Forget Password</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ForgetPasswordPages')}>
+            <Text style={styles.topText2}>
+            Don't have an account? Sign Up</Text>
         </TouchableOpacity>
         <View style={{ flex:1, justifyContent:'center',alignItems:'center', marginTop: 75, flexDirection: 'row'}}>
                 <Image source={{ uri:'google.png'}} style={styles.image}/> 
                 <Image source={{ uri:'facebook.png'}} style={styles.image}/>
+                </View>
             </View>
-    </View>
-    </View>
-        );
-    };
+        </View>
+    );
+  };
 
 const styles = StyleSheet.create({
     container: {
@@ -73,17 +77,12 @@ const styles = StyleSheet.create({
     topText: {
         fontSize: 50,
         textAlign: 'center',
-        marginRight: 130,
-        marginBottom: 80,
-        fontWeight: 'bold',
+        marginRight: 150,
+        marginBottom: 100,
+        fontWeight: "bold",
         fontFamily: 'MetroBold'
     },
-    topText1: {
-        fontSize: 20,
-        textAlign: 'center',
-        fontFamily: 'MetroMedium'
-    },
-    buttonText: {
+    ForgetPasswordText: {
         fontSize: 15,
         textAlign: 'center',
         color: "gray",
@@ -94,10 +93,25 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50,
+        marginHorizontal: 5
+    },
+    topText2: {
+        color: 'black',
+        marginTop: 20,
+        fontFamily: 'MetroMedium',
+    },
+    input: {
+       height: 45,
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 10,
         marginBottom: 10,
-        marginHorizontal: 10,
+        paddingLeft: 10,
+        width: 300,
         fontFamily: 'MetroMedium'
-    }
-});
-
-export default SignUpPages;
+    },
+    button: {
+        marginTop: 20
+    },
+})
+export default LoginPages;
