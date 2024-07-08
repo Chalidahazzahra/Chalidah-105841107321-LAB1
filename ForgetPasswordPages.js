@@ -1,8 +1,7 @@
-import { useFonts } from 'expo-font';
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const TextInputCustom = ({name, color, Password}) => {
+const TextInputCustom = ({name, color, secureTextEntry}) => {
 return (
     <View style= {{
         justifyContent: 'center',
@@ -21,52 +20,44 @@ return (
                 color: color,
                 fontFamily: 'MetroMedium'
             }}
+            secureTextEntry={secureTextEntry}
        />
     </View>
     )
 }
-const Buttoncostum = ({ color, text}) => {
-    return (
-        <View style={{ backgroundColor: color, 
-            width:160, 
-            height: 45, 
-            borderRadius: 10, 
-            width: 300,
-            marginTop: 10,
-            alignItems:'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-        }}>
-            <Text style={{ color:'white', fontSize: 15}}>
-                {text}
-            </Text>
+const ButtonCustom = ({ color, text, onPress}) => {
+  return (
+    <TouchableOpacity onPress={onPress}>
+        <View style={{ backgroundColor: color, height: 45, alignItems: "center", 
+          justifyContent: "center", textAlign: 'center', borderRadius: 10, width: 300, 
+          marginBottom: 100 }}>
+            <Text style= {{ color: 'white', fontSize: 15, fontFamily:'MetroMedium' }}>{text}</Text>
         </View>
-    );
+    </TouchableOpacity>
+);
 };
-const App = () => {
- 
+const ForgetPasswordPages = ({ navigation }) => {
 return (
     < View style={styles.container}>
         <Text style={styles.topText}>
-            Forget Password
+          Forget Password
         </Text>
-        <View View style={styles.container}>
         <Text style={styles.topText1}>
-           Please, enter your email address. You will receive a link to create a new password via email.
+        Please, enter your email address. You will receive a link to create a new password via email.
         </Text>
     <View style= {{ flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 270,
     }}>
-        <TextInputCustom name="Email" color="black" />
-        <Buttoncostum color='violet' text="SEND" />
+        <TextInput placeholder="Email" style={styles.input} />
+        <ButtonCustom color='violet' text="Reset Password" onPress={() => alert(' Reset link sind')}/>
+        <TouchableOpacity style={styles.button} onPress={() => alert(' Reset link sind')}>
+        </TouchableOpacity>
             </View>
         </View>
-    </View>
-    )
-}
-
+    );
+}; 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -87,5 +78,16 @@ const styles = StyleSheet.create({
         marginTop: 50,
         fontFamily: 'MetroMedium'
     },
+    input: {
+        height: 45,
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 10,
+        marginBottom: 10,
+        paddingLeft: 10,
+        width: 300,
+        color: 'black',
+        fontFamily: 'MetroMedium'
+    },
 })
-export default App
+export default ForgetPasswordPages

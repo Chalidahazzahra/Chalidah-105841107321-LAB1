@@ -1,8 +1,7 @@
-import { useFonts } from 'expo-font';
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const TextInputCustom = ({name, color, Password}) => {
+const TextInputCustom = ({name, color, secureTextEntry}) => {
 return (
     <View style= {{
         justifyContent: 'center',
@@ -21,30 +20,26 @@ return (
                 color: color,
                 fontFamily: 'MetroMedium'
             }}
+            secureTextEntry={secureTextEntry}
        />
     </View>
     )
 }
-const Buttoncostum = ({ color, text}) => {
-    return (
-        <View style={{ backgroundColor: color, width:160, height: 45, alignItems:'center', justifyContent: 'center',textAlign: 'center', borderRadius: 10, width: 300
-        }}>
-            <Text style={{ color:'white', fontSize: 20}}>
-                {text}
-            </Text>
+const ButtonCustom = ({ color, text, onPress}) => {
+  return (
+    <TouchableOpacity onPress={onPress}>
+        <View style={{ backgroundColor: color, height: 45, alignItems: "center", justifyContent: "center", 
+          textAlign: 'center', borderRadius: 10, width: 300, marginBottom: 100
+          }}>
+            <Text style= {{ color: 'white', fontSize: 20 }}>{text}</Text>
         </View>
-    );
+    </TouchableOpacity>
+  );
 };
-const App = () => {
-  const [fontsLoaded] = useFonts({
-    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
-    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
-    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
-    'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
-    'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf'),
-  });
-return (
-    < View style={styles.container}>
+
+const SignUpPages = ({ navigation }) => {
+    return (
+    <View style={styles.container}>
         <Text style={styles.topText}>
             Sign up
         </Text>
@@ -54,21 +49,20 @@ return (
     }}>
         <TextInputCustom name="Username" color="black" />
         <TextInputCustom name="Email" color="black" />
-        <TextInputCustom name="Password" color="black" />
-        <Buttoncostum color='violet' text="Sign Up" /> 
-        <View View style={styles.container}>
-        <Text style={styles.topText1}>
-            or sign up with social account
-        </Text>
+        <TextInputCustom name="Password" color="black" secureTextEntry />
+        <ButtonCustom color='violet' text="Sign Up" onPress={() => alert ('Akun anda akan berhasil dibuat')} />
+        <TouchableOpacity onPress={() => navigation.navigate('LoginPages')}>
+            <Text style={styles.buttonText}>
+            or sign up with social account</Text>
+        </TouchableOpacity>
         <View style={{ flex:1, justifyContent:'center',alignItems:'center', marginTop: 75, flexDirection: 'row'}}>
                 <Image source={{ uri:'google.png'}} style={styles.image}/> 
                 <Image source={{ uri:'facebook.png'}} style={styles.image}/>
             </View>
-        </View>
     </View>
     </View>
-    )
-}
+        );
+    };
 
 const styles = StyleSheet.create({
     container: {
@@ -80,13 +74,20 @@ const styles = StyleSheet.create({
         fontSize: 50,
         textAlign: 'center',
         marginRight: 130,
-        marginBottom: 120,
+        marginBottom: 80,
         fontWeight: 'bold',
         fontFamily: 'MetroBold'
     },
     topText1: {
         fontSize: 20,
         textAlign: 'center',
+        fontFamily: 'MetroMedium'
+    },
+    buttonText: {
+        fontSize: 15,
+        textAlign: 'center',
+        color: "gray",
+        marginBottom: 65,
         fontFamily: 'MetroMedium'
     },
     image: {
@@ -97,5 +98,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         fontFamily: 'MetroMedium'
     }
-})
-export default App
+});
+
+export default SignUpPages;
