@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     height: 50,
     marginHorizontal: 10,
     borderRadius: 40,
-    top: 80
-  },
+    top : 80
+    },
 });
 
 export default SignUpPages;
