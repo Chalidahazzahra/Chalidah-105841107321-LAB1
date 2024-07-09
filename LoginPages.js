@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginHorizontal: 5,
     borderRadius: 25
-  }
+    }
 });
 
 export default LoginPages;
