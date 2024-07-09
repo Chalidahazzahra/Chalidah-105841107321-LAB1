@@ -5,7 +5,7 @@ import SignUpPages from './SignUpPages';
 import LoginPages from './LoginPages';
 import ForgetPasswordPages from './ForgetPasswordPages';
 
-const Stack = createNativeStackNavigator ();
+const Stack = createNativeStackNavigator();
 
 function App() {
   return (
