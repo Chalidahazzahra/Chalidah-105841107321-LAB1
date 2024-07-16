@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, FlatList } from 'react-native'
 import React from 'react'
 
 const LoginPages = ({ navigation}) => {
@@ -8,7 +8,7 @@ const LoginPages = ({ navigation}) => {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <TextInput placeholder="Email" style={styles.input} />
         <TextInput placeholder="Password" secureTextEntry style={styles.input} />
-        <ButtonCustom color='violet' text="Login" onPress={() => alert('Login successful')} /> 
+        <ButtonCustom color='violet' text="Login" onPress={() => navigation.navigate('fashionPages')} /> 
         <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
           <Text style={styles.ForgetPasswordText}>Forget Password</Text>
         </TouchableOpacity>
@@ -31,6 +31,7 @@ const ButtonCustom = ({ color, text, onPress }) => (
     </View>
   </TouchableOpacity>
 );
+
 
 const styles = StyleSheet.create({
   container: {
