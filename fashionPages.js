@@ -5,10 +5,10 @@ function fashionPages() {
   return (
     <View style={styles.container}>
       <View style={styles.topText3}>
-        <Image source={{ uri: "taehyungsayang.png" }} style={styles.image} />
+        <Image source={{ uri: "taehyungku.png" }} style={styles.image} />
       </View>
       <Text style={styles.header}>Fashion Sale</Text>
-      <TouchableOpacity style={{borderBlockColor:'gray', borderWidth:1, width:'10%', height:20, borderRadius:20, backgroundColor:'red', alignItems:'center', alignSelf:'center', bottom:400}}><Text style={{color:'white'}}>Check</Text></TouchableOpacity>
+      <TouchableOpacity style={{borderBlockColor:'gray', borderWidth:1, width:'10%', height:30, borderRadius:20, backgroundColor:'red', alignItems:'center', alignSelf:'center', bottom:20}}><Text style={{color:'white',top: 5}}>Check</Text></TouchableOpacity>
     </View>
   );
 }
@@ -21,9 +21,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     alignSelf: 'center',
-    alignItems: 'center',
     position:'absolute',
-    top: 150,
+    top: 540,
     color: 'white',
     textShadowColor:'black',
     textShadowOffset:{width: 2, height: 2},
@@ -31,7 +30,8 @@ const styles = StyleSheet.create({
   },
   topText3: {
     alignItems: "center",
-    position:'relative'
+    position:'relative',
+    top: 50
     },
   image: {
     width: '100%',

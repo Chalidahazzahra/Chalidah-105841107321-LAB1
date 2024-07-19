@@ -26,7 +26,7 @@ function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        component={fashionPages}
+        component={LoginPages}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
@@ -70,7 +70,7 @@ function MyTabs() {
             headerShown: false,
             tabBarIcon: ({ focused }) => (
                 <Image
-                source={focused ? bagAktif : bag}
+                source={focused ? favoritesAktif : favorites}
                 style={{ width: 40, height: 40 }}
                 />
             ),
@@ -98,8 +98,8 @@ function HomeScreen({ navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
       <Button
-        title="Go to Sign Up"
-        onPress={() => navigation.navigate('Login')}
+        title="Login"
+        onPress={() => navigation.navigate('LoginPages')}
       />
     </View>
   );
@@ -112,7 +112,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={MyTabs} />
-        <Stack.Screen name="Login" component={LoginPages} />
+        <Stack.Screen name="LoginPages" component={LoginPages} />
         <Stack.Screen name="SignUp" component={SignUpPages} />
         <Stack.Screen name="ForgetPassword" component={ForgetPasswordPages} />
         <Stack.Screen name="profilePages" component={ProfilePages} />
